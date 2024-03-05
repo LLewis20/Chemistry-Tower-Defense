@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwfts0ts5iffi"]
+
+[ext_resource type="Script" path="res://Scenes/Turrets/tripleshootert1.gd" id="1_nnlcy"]
+
+[node name="Tripleshootert1" type="Node2D"]
+script = ExtResource("1_nnlcy")

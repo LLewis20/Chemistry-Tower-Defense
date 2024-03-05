@@ -1,0 +1,245 @@
+[gd_scene load_steps=16 format=3 uid="uid://dg02fghnynaef"]
+
+[ext_resource type="PackedScene" uid="uid://bgi37b75qoaw0" path="res://Scenes/Maps/map1.tscn" id="1_56nhb"]
+[ext_resource type="Script" path="res://Scenes/MainScenes/game_scene.gd" id="1_d4jco"]
+[ext_resource type="Texture2D" uid="uid://gwsojbgqmuf5" path="res://Assets/UI/button/btn01.png" id="2_0v4ov"]
+[ext_resource type="Script" path="res://Scenes/MainScenes/UI.gd" id="3_pi77i"]
+[ext_resource type="Texture2D" uid="uid://buemxytblyfsl" path="res://Assets/UI/background/cover box .png" id="4_o1h8t"]
+[ext_resource type="Texture2D" uid="uid://dp543640gs0jt" path="res://Assets/UI/background/coin bonus icon.png" id="5_shsx8"]
+[ext_resource type="FontFile" uid="uid://dsa2aj5lr0xs1" path="res://Resources/Fonts/RoSpritendoSemiboldBeta-vmVwZ.otf" id="6_o32s6"]
+[ext_resource type="Texture2D" uid="uid://dj2tg3verxeor" path="res://Assets/Icons/right.png" id="7_uvepg"]
+[ext_resource type="Texture2D" uid="uid://c7bc2njgnwtfq" path="res://Assets/Icons/pause.png" id="8_ag521"]
+[ext_resource type="Texture2D" uid="uid://drp8sob6joqkf" path="res://Assets/Towers/single_shooter.png" id="8_eet2o"]
+[ext_resource type="Texture2D" uid="uid://dirkxno2gybs7" path="res://Assets/Icons/fastForward.png" id="9_28odq"]
+[ext_resource type="Texture2D" uid="uid://sqrh2k21xgjh" path="res://Assets/Towers/big_blaster.png" id="9_mb5d4"]
+[ext_resource type="Texture2D" uid="uid://dgw0o2b8wu3v0" path="res://Assets/Towers/double_shooter.png" id="10_h7044"]
+[ext_resource type="Texture2D" uid="uid://cmc2vps2doo7i" path="res://Assets/Towers/triple_fire.png" id="11_d4b5d"]
+[ext_resource type="Texture2D" uid="uid://blqlyy07tmgor" path="res://Assets/UI/background/14.png" id="14_vr1s0"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_d4jco")
+
+[node name="Map1" parent="." instance=ExtResource("1_56nhb")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_pi77i")
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Coins" type="TextureRect" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -638.0
+offset_top = 3.0
+offset_right = -555.0
+offset_bottom = 81.0
+grow_horizontal = 2
+texture = ExtResource("5_shsx8")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="UI/HUD/Coins"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 16.0
+offset_right = 271.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("6_o32s6")
+theme_override_font_sizes/font_size = 38
+text = "$50"
+horizontal_alignment = 1
+
+[node name="InfoBar" type="TextureRect" parent="UI/HUD"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -44.0
+offset_right = 18.0
+offset_bottom = 92.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_o1h8t")
+expand_mode = 1
+
+[node name="BuildBar" type="VBoxContainer" parent="UI/HUD/InfoBar"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -200.0
+offset_right = 91.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="gun" type="TextureButton" parent="UI/HUD/InfoBar/BuildBar" groups=["build_buttons"]]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_0v4ov")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar/BuildBar/gun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -85.0
+offset_right = 48.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_eet2o")
+expand_mode = 5
+
+[node name="missile" type="TextureButton" parent="UI/HUD/InfoBar/BuildBar" groups=["build_buttons"]]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_0v4ov")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar/BuildBar/missile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -79.0
+offset_right = 40.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_mb5d4")
+expand_mode = 5
+
+[node name="doubleshooter" type="TextureButton" parent="UI/HUD/InfoBar/BuildBar" groups=["build_buttons"]]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_0v4ov")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar/BuildBar/doubleshooter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_h7044")
+expand_mode = 1
+
+[node name="tripleshooter" type="TextureButton" parent="UI/HUD/InfoBar/BuildBar" groups=["build_buttons"]]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_0v4ov")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar/BuildBar/tripleshooter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -61.0
+offset_right = 70.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_d4b5d")
+expand_mode = 1
+
+[node name="GameControls" type="HBoxContainer" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="PausePlay" type="TextureButton" parent="UI/HUD/GameControls"]
+process_mode = 3
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("7_uvepg")
+texture_pressed = ExtResource("8_ag521")
+
+[node name="SpeedUp" type="TextureButton" parent="UI/HUD/GameControls"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("9_28odq")
+
+[node name="Life" type="TextureRect" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 308.0
+offset_right = 393.0
+offset_bottom = 85.0
+texture = ExtResource("14_vr1s0")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="UI/HUD/Life"]
+process_mode = 3
+layout_mode = 0
+offset_left = 57.0
+offset_top = 19.0
+offset_right = 250.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("6_o32s6")
+theme_override_font_sizes/font_size = 38
+text = "100"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="UI/HUD/GameControls/PausePlay" to="UI" method="_on_pause_play_pressed"]
+[connection signal="pressed" from="UI/HUD/GameControls/SpeedUp" to="UI" method="_on_speed_up_pressed"]
