@@ -1,13 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsug5w7hssrt1"]
+[gd_scene load_steps=31 format=3 uid="uid://bsug5w7hssrt1"]
 
 [ext_resource type="Texture2D" uid="uid://b8djs76ddgue8" path="res://Assets/Enemies/Monster01/Monster01-animation_00.png" id="1_2rlvh"]
 [ext_resource type="Script" path="res://Scenes/Enemies/greenmonster.gd" id="1_76ft1"]
 [ext_resource type="Texture2D" uid="uid://bditeccvyy36e" path="res://Assets/Enemies/Monster01/Monster01-animation_01.png" id="2_21obw"]
+[ext_resource type="Texture2D" uid="uid://chv3wtt3rh04u" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_00.png" id="2_dikel"]
 [ext_resource type="Texture2D" uid="uid://brxcewqabo8ow" path="res://Assets/Enemies/Monster01/Monster01-animation_02.png" id="3_1ih6s"]
+[ext_resource type="Texture2D" uid="uid://b1dis7l0b4kuo" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_01.png" id="3_rjmrt"]
 [ext_resource type="Texture2D" uid="uid://bex0y16ibrjl1" path="res://Assets/Enemies/Monster01/Monster01-animation_03.png" id="4_gg3ns"]
+[ext_resource type="Texture2D" uid="uid://de7ft32umgrke" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_02.png" id="4_ih0ym"]
 [ext_resource type="Texture2D" uid="uid://c8oww8blssoh4" path="res://Assets/Enemies/Monster01/Monster01-animation_04.png" id="5_mg0gp"]
+[ext_resource type="Texture2D" uid="uid://d1wkewr2r83ct" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_03.png" id="5_tewp4"]
+[ext_resource type="Texture2D" uid="uid://7cef8ltd5mxi" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_04.png" id="6_0xejt"]
 [ext_resource type="Texture2D" uid="uid://010ep8b073ho" path="res://Assets/Enemies/Monster01/Monster01-animation_05.png" id="6_jal7c"]
 [ext_resource type="Texture2D" uid="uid://e6o8ryqcc6ek" path="res://Assets/Enemies/Monster01/Monster01-animation_06.png" id="7_j4ruy"]
+[ext_resource type="Texture2D" uid="uid://cvjdfof15tyum" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_05.png" id="7_k5nw3"]
 [ext_resource type="Texture2D" uid="uid://de2f16kwbptfi" path="res://Assets/Enemies/Monster01/Monster01-animation_07.png" id="8_k7aj4"]
 [ext_resource type="Texture2D" uid="uid://es0ywt7wcr5h" path="res://Assets/Enemies/Monster01/Monster01-animation_08.png" id="9_7jvwe"]
 [ext_resource type="Texture2D" uid="uid://nxdjnyhhncvs" path="res://Assets/Enemies/Monster01/Monster01-animation_09.png" id="10_bygsp"]
@@ -25,6 +31,29 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a1bpg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dikel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rjmrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ih0ym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tewp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0xejt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k5nw3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 25.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_2rlvh")
@@ -104,7 +133,9 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.538462, 0.538462)
 sprite_frames = SubResource("SpriteFrames_a1bpg")
-animation = &"walk"
+animation = &"dead"
+frame = 5
+frame_progress = 0.815003
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_3xk5y")

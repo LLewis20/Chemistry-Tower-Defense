@@ -37,8 +37,10 @@ func on_hit(damage):
 	health -= damage
 	health_bar.value = health
 	if health <= 0:
-		on_destroy()
+		$CharacterBody2D/AnimatedSprite2D.play("dead")
 		emit_signal("add_money", cash)
+		await (get_tree().create_timer(0.18)).timeout
+		on_destroy()
 
 func on_destroy():
 	self.queue_free()

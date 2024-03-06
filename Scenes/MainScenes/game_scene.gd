@@ -17,13 +17,18 @@ var build_location
 var build_type
 var category
 
+var number_of_flask = 0
+var spawn_flask = true
+
 func _ready():
-	map_node = get_node("Map1") 
+	map_node = get_node("Map1")
+	create_flask()
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 
 
 func _process(_delta):
+	check_number_of_flask()
 	if build_mode:
 		update_tower_preview()
 
@@ -113,6 +118,34 @@ func verify_and_build():
 		map_node.get_node("TowerExclusion").set_cell(0, build_tile, 6, Vector2(1, 0))
 
 
+##
+## Flask / QUESTION BOXES
+##
+func create_flask():
+	if spawn_flask:
+		var flask = load("res://Scenes/MoneyFlask/MoneyFlask.tscn").instantiate()
+		flask.position = Vector2((randf_range(0,1000)), (randf_range(6,525)))
+		$UI.connect("correct_answer", Callable(self, "_on_correct_answer"))
+		map_node.add_child(flask, true)
+		number_of_flask += 1
+		await (get_tree().create_timer(randf_range(10,30))).timeout
+
+func check_number_of_flask():
+	if number_of_flask >= 4:
+		spawn_flask = false
+	elif number_of_flask < 4:
+		await (get_tree().create_timer(randf_range(10,11))).timeout
+		create_flask()
+	else:
+		spawn_flask = true
+		create_flask()
+
+func flask_answered():
+	number_of_flask -= 1
+
+##
+## MIS FUNCTIONS
+##
 func on_base_damage(damage):
 	base_health -= damage
 	if base_health <= 0:

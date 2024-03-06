@@ -24,5 +24,86 @@ var tower_data = {
 		"range": 220,
 		"cost": 45,
 		"category": "projectile"
+	},
+	
+	"tripleshootert1":{
+		"damage": 6,
+		"fire_rate": 2,
+		"range": 450,
+		"cost": 50,
+		"category": "projectile"
 	}
+}
+
+var questions = {
+	##
+	## ACID | Base | POLYATOMIC | Neither Questions
+	##
+	"1":{
+		"Question": "What is BaCrO\u2084?",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"2":{
+		"Question": "What is AgCl?",
+		"Answer": "Neither",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"3":{
+		"Question": "What is CCl\u2084?",
+		"Answer": "Neither",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"4":{
+		"Question": "What is HCLO\u2084?",
+		"Answer": "Acid",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"5":{
+		"Question": "What is HNO\u2082?",
+		"Answer": "Acid",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"6":{
+		"Question": "What is C\u2083H\u2088",
+		"Answer": "Neither",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	}
+	
+	
 }

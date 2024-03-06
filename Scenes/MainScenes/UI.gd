@@ -1,7 +1,13 @@
 extends CanvasLayer
 
+signal correct_answer
+
+
 @onready var health_bar = get_node("HUD/Life/Label2")
 @onready var money_count = get_node("HUD/Coins/Label")
+
+var question_number
+
 
 func set_tower_preview(tower_type, mouse_position):
 	var drag_tower = load("res://Scenes/Turrets/" + tower_type + ".tscn").instantiate()
@@ -56,3 +62,41 @@ func update_health(base_health):
 
 func change_cash_amount(amount):
 	money_count.text = "$" + str(amount)
+
+##
+## QUESTION BOX FUNCTIONS
+##
+func create_question():
+	question_number = randi_range(1,4)
+	$HUD/QuestionBox/VBoxContainer/QuestionLabel.text = GameData.questions[str(question_number)]["Question"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton/Label.text = GameData.questions[str(question_number)]["Options"]["1"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton2/Label.text = GameData.questions[str(question_number)]["Options"]["2"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton3/Label.text = GameData.questions[str(question_number)]["Options"]["3"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text = GameData.questions[str(question_number)]["Options"]["4"]
+	get_node("HUD/QuestionBox").visible = true
+
+
+func check_answer(users_answer):
+	if users_answer == GameData.questions[str(question_number)]["Answer"]:
+		$"..".update_money(10)
+		get_node("HUD/QuestionBox").visible = false
+		$"..".flask_answered()
+		emit_signal("correct_answer")
+	else:
+		get_node("HUD/QuestionBox").visible = false
+
+
+func _on_texture_button_pressed():
+	check_answer($HUD/QuestionBox/VBoxContainer/TextureButton/Label.text)
+	
+
+func _on_texture_button_2_pressed():
+	check_answer($HUD/QuestionBox/VBoxContainer/TextureButton2/Label.text)
+
+
+func _on_texture_button_3_pressed():
+	check_answer($HUD/QuestionBox/VBoxContainer/TextureButton3/Label.text)
+
+
+func _on_texture_button_4_pressed():
+	check_answer($HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text)
