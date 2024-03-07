@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dg02fghnynaef"]
+[gd_scene load_steps=20 format=3 uid="uid://dg02fghnynaef"]
 
 [ext_resource type="PackedScene" uid="uid://bgi37b75qoaw0" path="res://Scenes/Maps/map1.tscn" id="1_56nhb"]
 [ext_resource type="Script" path="res://Scenes/MainScenes/game_scene.gd" id="1_d4jco"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://blqlyy07tmgor" path="res://Assets/UI/background/14.png" id="14_vr1s0"]
 [ext_resource type="Texture2D" uid="uid://uhw6w7ffx2fb" path="res://Assets/UI/background/cover background.png" id="16_tvc3r"]
 [ext_resource type="Texture2D" uid="uid://cmldv1tsqvkxh" path="res://Assets/UI/health bar/HPbar.jpg" id="17_5gif6"]
+[ext_resource type="Texture2D" uid="uid://sbf2xoxduwmb" path="res://Assets/Icons/close_btn_pressed.png" id="17_qsphx"]
+[ext_resource type="Texture2D" uid="uid://dmp4c2h0px7cc" path="res://Assets/Icons/close_btn_pressed_1.png" id="18_wf0e5"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_d4jco")
@@ -285,6 +287,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="ExitQuestionButton" type="TextureButton" parent="UI/HUD/QuestionBox/VBoxContainer/QuestionLabel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = -34.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 0
+texture_normal = ExtResource("17_qsphx")
+texture_pressed = ExtResource("18_wf0e5")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="TextureButton" type="TextureButton" parent="UI/HUD/QuestionBox/VBoxContainer"]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
@@ -399,6 +416,7 @@ autowrap_mode = 3
 
 [connection signal="pressed" from="UI/HUD/GameControls/PausePlay" to="UI" method="_on_pause_play_pressed"]
 [connection signal="pressed" from="UI/HUD/GameControls/SpeedUp" to="UI" method="_on_speed_up_pressed"]
+[connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/QuestionLabel/ExitQuestionButton" to="UI" method="_on_exit_question_button_pressed"]
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/TextureButton" to="UI" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/TextureButton2" to="UI" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/TextureButton3" to="UI" method="_on_texture_button_3_pressed"]

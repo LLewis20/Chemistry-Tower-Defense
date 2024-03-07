@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://bsug5w7hssrt1"]
 
 [ext_resource type="Texture2D" uid="uid://b8djs76ddgue8" path="res://Assets/Enemies/Monster01/Monster01-animation_00.png" id="1_2rlvh"]
-[ext_resource type="Script" path="res://Scenes/Enemies/greenmonster.gd" id="1_76ft1"]
+[ext_resource type="Script" path="res://Scenes/Enemies/greenacid.gd" id="1_76ft1"]
 [ext_resource type="Texture2D" uid="uid://bditeccvyy36e" path="res://Assets/Enemies/Monster01/Monster01-animation_01.png" id="2_21obw"]
 [ext_resource type="Texture2D" uid="uid://chv3wtt3rh04u" path="res://Assets/Enemies/death/EnemyDieFx-EnemyDieFx_00.png" id="2_dikel"]
 [ext_resource type="Texture2D" uid="uid://brxcewqabo8ow" path="res://Assets/Enemies/Monster01/Monster01-animation_02.png" id="3_1ih6s"]
@@ -123,7 +123,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xk5y"]
 radius = 29.0172
 
-[node name="GreenMonster" type="PathFollow2D"]
+[node name="GreenAcid" type="PathFollow2D"]
 loop = false
 script = ExtResource("1_76ft1")
 
@@ -133,9 +133,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.538462, 0.538462)
 sprite_frames = SubResource("SpriteFrames_a1bpg")
-animation = &"dead"
-frame = 5
-frame_progress = 0.815003
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_3xk5y")

@@ -22,13 +22,12 @@ var spawn_flask = true
 
 func _ready():
 	map_node = get_node("Map1")
-	create_flask()
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 
 
 func _process(_delta):
-	check_number_of_flask()
+	check_and_spawn_flask()
 	if build_mode:
 		update_tower_preview()
 
@@ -45,20 +44,19 @@ func _unhandled_input(event):
 ##
 func start_next_wave():
 	var wave_data = retrieve_wave_data()
-	await (get_tree().create_timer(0.2)).timeout
+	await get_tree().create_timer(0.2).timeout
 	spawn_enemies(wave_data)
-
-
+	
 func retrieve_wave_data():
 	var wave_data = [
-		["greenmonster", 0], ["greenmonster", 0],["greenmonster", 0],["greenmonster", 0],["greenmonster", 10],
-		["greenmonster", 0], ["greenmonster", 0],["greenmonster", 0],["greenmonster", 0],["greenmonster", 0],["greenmonster", 10],
-		["greenmonster", 0], ["greenmonster", 0],["greenmonster", 0],["greenmonster", 0],["greenmonster", 0],["greenmonster", 0],["greenmonster", 10],
+		["greenacid", 0], ["purpleacid", 0], ["orangeacid", 0], ["greenacid", 10],
+		["greenacid", 0], ["greenacid", 0], ["blueacid", 0], ["greenacid", 10],
+		["greenacid", 0], ["greenacid", 0], ["greenacid", 0], ["greenacid", 10],
 	]
+	
 	current_wave += 1
 	enemies_in_wave = wave_data.size()
 	return wave_data
-
 
 func spawn_enemies(wave_data):
 	for i in wave_data:
@@ -121,27 +119,24 @@ func verify_and_build():
 ##
 ## Flask / QUESTION BOXES
 ##
-func create_flask():
+func check_and_spawn_flask():
 	if spawn_flask:
-		var flask = load("res://Scenes/MoneyFlask/MoneyFlask.tscn").instantiate()
-		flask.position = Vector2((randf_range(0,1000)), (randf_range(6,525)))
-		$UI.connect("correct_answer", Callable(self, "_on_correct_answer"))
-		map_node.add_child(flask, true)
-		number_of_flask += 1
-		await (get_tree().create_timer(randf_range(10,30))).timeout
-
-func check_number_of_flask():
-	if number_of_flask >= 4:
+		create_flask()
 		spawn_flask = false
-	elif number_of_flask < 4:
-		await (get_tree().create_timer(randf_range(10,11))).timeout
-		create_flask()
-	else:
-		spawn_flask = true
-		create_flask()
+
+
+func create_flask():
+	var flask = load("res://Scenes/MoneyFlask/MoneyFlask.tscn").instantiate()
+	flask.position = Vector2((randf_range(0,1000)), (randf_range(6,525)))
+	$UI.connect("correct_answer", Callable(self, "_on_correct_answer"))
+	map_node.add_child(flask, true)
+	number_of_flask += 1
+
 
 func flask_answered():
-	number_of_flask -= 1
+	await get_tree().create_timer(10).timeout
+	spawn_flask = true
+
 
 ##
 ## MIS FUNCTIONS

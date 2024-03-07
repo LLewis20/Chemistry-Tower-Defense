@@ -67,7 +67,8 @@ func change_cash_amount(amount):
 ## QUESTION BOX FUNCTIONS
 ##
 func create_question():
-	question_number = randi_range(1,4)
+	question_number = randi_range(1,20)
+	print(question_number)
 	$HUD/QuestionBox/VBoxContainer/QuestionLabel.text = GameData.questions[str(question_number)]["Question"]
 	$HUD/QuestionBox/VBoxContainer/TextureButton/Label.text = GameData.questions[str(question_number)]["Options"]["1"]
 	$HUD/QuestionBox/VBoxContainer/TextureButton2/Label.text = GameData.questions[str(question_number)]["Options"]["2"]
@@ -100,3 +101,7 @@ func _on_texture_button_3_pressed():
 
 func _on_texture_button_4_pressed():
 	check_answer($HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text)
+
+
+func _on_exit_question_button_pressed():
+	$HUD/QuestionBox.visible = false

@@ -35,6 +35,8 @@ var tower_data = {
 	}
 }
 
+
+
 var questions = {
 	##
 	## ACID | Base | POLYATOMIC | Neither Questions
@@ -103,7 +105,164 @@ var questions = {
 			"3": "Polyatomic",
 			"4": "Neither"
 		}
-	}
+	},
+
+	"7":{
+		"Question": "What is CH\u2083COOH?",
+		"Answer": "Acid",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"8":{
+		"Question": "What is MgC\u2082O\u2084?",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"9":{
+		"Question": "What is HCN?",
+		"Answer": "Acid",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"10":{
+		"Question": "What is CH\u2084",
+		"Answer": "Neither",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"11":{
+		"Question": "What is CaCO\u2083?",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"12":{
+		"Question": "What is K\u2082SO\u2083",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"13":{
+		"Question": "What is NO\u2083",
+		"Answer": "Polyatomic",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"14":{
+		"Question": "What is SO\u2084",
+		"Answer": "Polyatomic",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	"15":{
+		"Question": "What is NO\u2082",
+		"Answer": "Polyatomic",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+
+	##
+	## BALANCE EQUATIONS
+	##
+	"16":{
+		"Question": "What is the products and balance for the acid-base equation KNO\u2082 (aq) + HClO\u2084 (aq) \u2192 ?",
+		"Answer": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq)",
+		"Options": {
+			"1": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq)",
+			"2": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq) + H\u2082O (l)",
+			"3": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq) + H\u2082O (l) + O\u2082 (g)",
+			"4": "No Reaction"
+		}
+	},
+
+	"17":{
+		"Question": "What is the products and balance for the acid-base equation KNO\u2083 (aq) + HClO\u2084 (aq) \u2192",
+		"Answer": "No Reaction",
+		"Options": {
+			"1": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq)",
+			"2": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq) + H\u2082O (l)",
+			"3": "HNO\u2082 (aq) + K (aq) + ClO\u2084 (aq) + H\u2082O (l) + O\u2082 (g)",
+			"4": "No Reaction"
+		}
+	},
+
+	"18":{
+		"Question": "What is the products and balance for the acid-base equation HCl (aq) + H\u2082O (l) \u2192",
+		"Answer": "H\u2083O\u2084 (aq) + Cl (aq)",
+		"Options": {
+			"1": "H\u2083O\u2084 (aq) + Cl (aq) + O\u2082 (g)",
+			"2": "H\u2083O\u2084 (aq) + Cl (aq)",
+			"3": "H\u2083O\u2084 (aq) + Cl (aq) + O\u2082 (g) + H\u2082O (l)",
+			"4": "No Reaction"
+		}
+	},
+
+	"19":{
+		"Question": "What is the products and balance for the acid-base equation HCN (aq) + H\u2082O (l) \u2192",
+		"Answer": "H\u2083O (aq) + CN (aq)",
+		"Options": {
+			"1": "H\u2083O (aq) + CN (aq) + O\u2082 (g)",
+			"2": "H\u2083O (aq) + CN (aq)",
+			"3": "H\u2083O (aq) + CN (aq) + O\u2082 (g) + H\u2082O (l)",
+			"4": "No Reaction"
+		}
+	},
+
+	"20":{
+		"Question": "What is the products and balance for the acid-base equation KClO\u2084 (aq) + HBr (aq) \u2192",
+		"Answer": "No Reaction",
+		"Options": {
+			"1": "HClO\u2084 (aq) + KBr (aq)",
+			"2": "HClO\u2084 (aq) + KBr (aq) + H\u2082O (l)",
+			"3": "HClO\u2084 (aq) + KBr (aq) + H\u2082O (l) + O\u2082 (g)",
+			"4": "No Reaction"
+		}
+	},
 	
 	
 }
