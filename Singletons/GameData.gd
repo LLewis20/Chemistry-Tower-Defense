@@ -263,6 +263,76 @@ var questions = {
 			"4": "No Reaction"
 		}
 	},
+	"21":{
+		"Question": "What is CH\u2083-NH\u2082",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+	"22":{
+		"Question": "What is Mg(OH)\u2082",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+	"23":{
+		"Question": "What is HCl",
+		"Answer": "Acid",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+	"24":{
+		"Question": "What is HNO\u2083",
+		"Answer": "Acid",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+	"25":{
+		"Question": "What is K\u2083PO\u2084",
+		"Answer": "Base",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+	"26":{
+		"Question": "What is KNO\u2083",
+		"Answer": "Neither",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
+	"27":{
+		"Question": "What is KNO\u2082",
+		"Answer": "Neither",
+		"Options": {
+			"1": "Acid",
+			"2": "Base",
+			"3": "Polyatomic",
+			"4": "Neither"
+		}
+	},
 	
 	
 }
