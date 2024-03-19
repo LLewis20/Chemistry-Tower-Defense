@@ -71,6 +71,7 @@ func change_cash_amount(amount):
 ## QUESTION BOX FUNCTIONS
 ##
 func create_question():
+<<<<<<< HEAD
 	if get_node("HUD/QuestionBox").visible or question_active:
 		get_node("HUD/QuestionBox").visible = true
 		return
@@ -82,6 +83,9 @@ func create_question():
 	question_active = true
 
 func update_question_ui(question_number):
+=======
+	question_number = randi_range(1,27)
+>>>>>>> df7b23444f45e17646124c380d964a3604cf5ccf
 	print(question_number)
 	$HUD/QuestionBox/VBoxContainer/QuestionLabel.text = GameData.questions[str(question_number)]["Question"]
 	$HUD/QuestionBox/VBoxContainer/TextureButton/Label.text = GameData.questions[str(question_number)]["Options"]["1"]
@@ -89,7 +93,9 @@ func update_question_ui(question_number):
 	$HUD/QuestionBox/VBoxContainer/TextureButton3/Label.text = GameData.questions[str(question_number)]["Options"]["3"]
 	$HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text = GameData.questions[str(question_number)]["Options"]["4"]
 
-
+##
+## Checks to make sure answer is correct
+##
 func check_answer(users_answer):
 	if users_answer == GameData.questions[str(question_number)]["Answer"]:
 		$"..".update_money(10)
