@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dg02fghnynaef"]
+[gd_scene load_steps=23 format=3 uid="uid://dg02fghnynaef"]
 
 [ext_resource type="PackedScene" uid="uid://bgi37b75qoaw0" path="res://Scenes/Maps/map1.tscn" id="1_56nhb"]
 [ext_resource type="Script" path="res://Scenes/MainScenes/game_scene.gd" id="1_d4jco"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://cmldv1tsqvkxh" path="res://Assets/UI/health bar/HPbar.jpg" id="17_5gif6"]
 [ext_resource type="Texture2D" uid="uid://sbf2xoxduwmb" path="res://Assets/Icons/close_btn_pressed.png" id="17_qsphx"]
 [ext_resource type="Texture2D" uid="uid://dmp4c2h0px7cc" path="res://Assets/Icons/close_btn_pressed_1.png" id="18_wf0e5"]
+[ext_resource type="Texture2D" uid="uid://df4kitv2deepi" path="res://Assets/UI/button/start game btn.png" id="20_ajn0r"]
+[ext_resource type="FontFile" uid="uid://djjci2afnfjas" path="res://Resources/Fonts/TherenRegular-vmrnE.ttf" id="21_ur8qd"]
+[ext_resource type="AudioStream" uid="uid://ci04h3ggpux3k" path="res://Assets/Audio/hover.ogg" id="22_f34n7"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_d4jco")
@@ -72,7 +75,7 @@ anchor_bottom = 1.0
 offset_left = -198.0
 offset_top = -44.0
 offset_right = 18.0
-offset_bottom = 92.0
+offset_bottom = 104.0
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("4_o1h8t")
@@ -414,6 +417,154 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="PauseMenu" type="TextureRect" parent="UI/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -185.0
+offset_right = 78.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_o1h8t")
+
+[node name="Buttons" type="VBoxContainer" parent="UI/HUD/PauseMenu"]
+custom_minimum_size = Vector2(600, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -356.0
+offset_right = 300.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="UI/HUD/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(500, 175)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("20_ajn0r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/HUD/PauseMenu/Buttons/ResumeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -50.5
+offset_right = 194.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("21_ur8qd")
+theme_override_font_sizes/font_size = 48
+text = "RESUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" type="TextureButton" parent="UI/HUD/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(500, 175)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("20_ajn0r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/HUD/PauseMenu/Buttons/OptionsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -50.5
+offset_right = 194.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("21_ur8qd")
+theme_override_font_sizes/font_size = 48
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelpButton" type="TextureButton" parent="UI/HUD/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(500, 175)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("20_ajn0r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/HUD/PauseMenu/Buttons/HelpButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -50.5
+offset_right = 194.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("21_ur8qd")
+theme_override_font_sizes/font_size = 48
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="UI/HUD/PauseMenu/Buttons"]
+custom_minimum_size = Vector2(500, 175)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("20_ajn0r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/HUD/PauseMenu/Buttons/ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -50.5
+offset_right = 194.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("21_ur8qd")
+theme_override_font_sizes/font_size = 48
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_f34n7")
+bus = &"SFX"
+
 [connection signal="pressed" from="UI/HUD/GameControls/PausePlay" to="UI" method="_on_pause_play_pressed"]
 [connection signal="pressed" from="UI/HUD/GameControls/SpeedUp" to="UI" method="_on_speed_up_pressed"]
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/QuestionLabel/ExitQuestionButton" to="UI" method="_on_exit_question_button_pressed"]
@@ -421,3 +572,4 @@ autowrap_mode = 3
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/TextureButton2" to="UI" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/TextureButton3" to="UI" method="_on_texture_button_3_pressed"]
 [connection signal="pressed" from="UI/HUD/QuestionBox/VBoxContainer/TextureButton4" to="UI" method="_on_texture_button_4_pressed"]
+[connection signal="pressed" from="UI/HUD/PauseMenu/Buttons/ResumeButton" to="UI" method="_on_resume_button_pressed"]

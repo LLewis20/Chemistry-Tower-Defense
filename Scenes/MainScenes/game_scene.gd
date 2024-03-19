@@ -20,6 +20,9 @@ var category
 var number_of_flask = 0
 var spawn_flask = true
 
+var is_pause_menu_visible = false
+
+
 func _ready():
 	map_node = get_node("Map1")
 	for i in get_tree().get_nodes_in_group("build_buttons"):
@@ -38,6 +41,14 @@ func _unhandled_input(event):
 	if event.is_action_released("ui_accept") and build_mode == true:
 		verify_and_build()
 		cancel_build_mode()
+	if event.is_action_pressed("pause"):
+		if is_pause_menu_visible:
+			get_node("UI/HUD/PauseMenu").visible = false
+			is_pause_menu_visible = false
+		else:
+			get_node("UI/HUD/PauseMenu").visible = true
+			is_pause_menu_visible = true
+
 
 ##
 ## Wave Functions
@@ -46,19 +57,39 @@ func start_next_wave():
 	var wave_data = retrieve_wave_data()
 	await get_tree().create_timer(0.2).timeout
 	spawn_enemies(wave_data)
-	
+
+
 func retrieve_wave_data():
-	var wave_data = [
-		["greenacid", 0], ["purpleacid", 0], ["orangeacid", 0], ["greenacid", 10],
-		["greenacid", 0], ["greenacid", 0], ["blueacid", 0], ["greenacid", 10],
-		["greenacid", 0], ["greenacid", 0], ["greenacid", 0], ["greenacid", 10],
-	]
-	
+	var wave_data = create_enemy_wave(current_wave)
+
 	current_wave += 1
-	enemies_in_wave = wave_data.size()
 	return wave_data
 
-func spawn_enemies(wave_data):
+
+func create_enemy_wave(wave_number : int):
+	var wave_data = []
+	var enemy_availability = {
+		"greenacid": 1,
+		"blueacid": 3,
+		"orangeacid": 5,
+		"purpleacid": 7,
+	}
+
+	var base_enemy_count = 5
+	var difficulty_scale = wave_number * 0.5 
+
+	for enemy_type in enemy_availability.keys():
+		if wave_number >= enemy_availability[enemy_type]:
+			var enemy_count = int(base_enemy_count + difficulty_scale * (randi() % 2 + 1))
+			difficulty_scale += 0.1
+
+			for i in range(enemy_count):
+				var spawn_delay = randf_range(0.5, 2.0)
+				wave_data.append([enemy_type, spawn_delay])
+	return wave_data
+
+
+func spawn_enemies(wave_data : Array):
 	for i in wave_data:
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
 		new_enemy.connect("base_damage", Callable(self, "on_base_damage"))
@@ -68,6 +99,9 @@ func spawn_enemies(wave_data):
 			await (get_tree().create_timer(i[1])).timeout
 		else:
 			await (get_tree().create_timer(randf_range(0.5, 3))).timeout
+			
+	await get_tree().create_timer(10.0).timeout
+	start_next_wave()
 
 
 ##
@@ -94,7 +128,7 @@ func update_tower_preview():
 		build_tile = current_tile
 	
 	else:
-		get_node("UI").update_tower_preview(title_position, "000")
+		get_node("UI").update_tower_preview(title_position, "FF0000")
 		build_valid = false
 
 
@@ -114,6 +148,8 @@ func verify_and_build():
 		new_tower.category = GameData.tower_data[build_type]["category"]
 		map_node.get_node("Turrets").add_child(new_tower, true)
 		map_node.get_node("TowerExclusion").set_cell(0, build_tile, 6, Vector2(1, 0))
+		$audio.stream = load("res://Assets/Audio/build_turret.ogg")
+		$audio.play()
 
 
 ##
@@ -141,7 +177,7 @@ func flask_answered():
 ##
 ## MIS FUNCTIONS
 ##
-func on_base_damage(damage):
+func on_base_damage(damage : int):
 	base_health -= damage
 	if base_health <= 0:
 		emit_signal("game_finished", false)
@@ -149,6 +185,6 @@ func on_base_damage(damage):
 		get_node("UI").update_health(base_health)
 
 
-func update_money(amount):
+func update_money(amount : int):
 	money += amount
 	get_node("UI").change_cash_amount(money)

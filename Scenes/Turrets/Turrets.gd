@@ -54,6 +54,7 @@ func fire():
 
 func fire_gun():
 	get_node("AnimationPlayer").play("Fire")
+	$audio.play()
 	
 func fire_missile():
 	pass

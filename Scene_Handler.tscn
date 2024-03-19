@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn4gqby0dyhif"]
+[gd_scene load_steps=4 format=3 uid="uid://cn4gqby0dyhif"]
 
 [ext_resource type="PackedScene" uid="uid://dq3hkw226p3nh" path="res://Scenes/UIScenes/main_menu.tscn" id="1_ukg12"]
 [ext_resource type="Script" path="res://Scene_Handler.gd" id="1_wfosa"]
+[ext_resource type="AudioStream" uid="uid://dcg3xjio46wrk" path="res://Assets/Audio/village-15345.mp3" id="3_iwuyx"]
 
 [node name="SceneHandler" type="Node"]
 script = ExtResource("1_wfosa")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_ukg12")]
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iwuyx")
+volume_db = -20.0
+bus = &"music"

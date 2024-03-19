@@ -6,7 +6,7 @@ var tower_data = {
 		"damage": 1,
 		"fire_rate": 1.0,
 		"range": 450,
-		"cost": 10,
+		"cost": 20,
 		"category": "projectile"
 	},
 	
@@ -14,7 +14,7 @@ var tower_data = {
 		"damage": 100,
 		"fire_rate": 3.0,
 		"range": 550,
-		"cost": 20,
+		"cost": 45,
 		"category": "missile"
 	},
 	
@@ -22,7 +22,7 @@ var tower_data = {
 		"damage": 2,
 		"fire_rate": 1.5,
 		"range": 220,
-		"cost": 45,
+		"cost": 60,
 		"category": "projectile"
 	},
 	
@@ -30,7 +30,7 @@ var tower_data = {
 		"damage": 6,
 		"fire_rate": 2,
 		"range": 450,
-		"cost": 50,
+		"cost": 150,
 		"category": "projectile"
 	}
 }

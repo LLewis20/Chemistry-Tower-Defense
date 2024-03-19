@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bsug5w7hssrt1"]
+[gd_scene load_steps=32 format=3 uid="uid://bsug5w7hssrt1"]
 
 [ext_resource type="Texture2D" uid="uid://b8djs76ddgue8" path="res://Assets/Enemies/Monster01/Monster01-animation_00.png" id="1_2rlvh"]
 [ext_resource type="Script" path="res://Scenes/Enemies/greenacid.gd" id="1_76ft1"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cpe4r11hbraxe" path="res://Assets/Enemies/Monster01/Monster01-animation_18.png" id="19_d0bwl"]
 [ext_resource type="Texture2D" uid="uid://bhhgybfsef3uj" path="res://Assets/Enemies/Monster01/Monster01-animation_19.png" id="20_fle34"]
 [ext_resource type="Texture2D" uid="uid://cmldv1tsqvkxh" path="res://Assets/UI/health bar/HPbar.jpg" id="22_lyrbd"]
+[ext_resource type="AudioStream" uid="uid://r625jeau6jwh" path="res://Assets/Audio/acid_death_noise.mp3" id="29_1udlm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a1bpg"]
 animations = [{
@@ -149,3 +150,8 @@ texture_under = ExtResource("22_lyrbd")
 texture_progress = ExtResource("22_lyrbd")
 tint_under = Color(0.25098, 0.25098, 0.25098, 1)
 tint_progress = Color(0, 0.760784, 0.0117647, 1)
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_1udlm")
+volume_db = 4.685
+bus = &"SFX"

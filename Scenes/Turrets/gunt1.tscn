@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bimd6gvye2hng"]
+[gd_scene load_steps=23 format=3 uid="uid://bimd6gvye2hng"]
 
 [ext_resource type="Script" path="res://Scenes/Turrets/gunt1.gd" id="1_tuh40"]
 [ext_resource type="Texture2D" uid="uid://drp8sob6joqkf" path="res://Assets/Towers/single_shooter.png" id="2_1tvwv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d237up6moq4yt" path="res://Assets/Towers/effects/Shoot fx-animation_03.png" id="16_1lmto"]
 [ext_resource type="Texture2D" uid="uid://yd2oogpou4qn" path="res://Assets/Towers/effects/Shoot fx-animation_04.png" id="17_6vver"]
 [ext_resource type="Texture2D" uid="uid://da6nqmwxp8p0h" path="res://Assets/Towers/effects/Shoot fx-animation_05.png" id="18_cmspy"]
+[ext_resource type="AudioStream" uid="uid://w3mpvldel6xq" path="res://Assets/Audio/turret_shoot.ogg" id="18_sg7h2"]
 [ext_resource type="Texture2D" uid="uid://c4d5ywb41kktr" path="res://Assets/Towers/effects/Shoot fx-animation_06.png" id="19_g6f38"]
 [ext_resource type="Texture2D" uid="uid://2w4jf2lxyfbi" path="res://Assets/Towers/effects/Shoot fx-animation_07.png" id="20_fi2k1"]
 [ext_resource type="Texture2D" uid="uid://priij2xcq8x0" path="res://Assets/Towers/effects/Shoot fx-animation_08.png" id="21_3ybqe"]
@@ -120,6 +121,9 @@ shape = SubResource("CircleShape2D_xhv7o")
 libraries = {
 "": SubResource("AnimationLibrary_kg1r4")
 }
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_sg7h2")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

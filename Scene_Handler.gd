@@ -1,8 +1,10 @@
 extends Node
 
 
+
 func _ready():
 	load_main_menu()
+	$MusicAudio.play()
 
 func load_main_menu():
 	get_node("MainMenu/MarginContainer/VBoxContainer/PlayButton").connect("pressed", Callable(self, "_on_play_button_pressed"))

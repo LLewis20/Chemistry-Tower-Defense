@@ -9,6 +9,7 @@ var enemy_damage = 2
 var base_health = 100
 var cash = 1
 
+
 @onready var health_bar = get_node("HealthBar")
 
 
@@ -37,10 +38,12 @@ func on_hit(damage):
 	health -= damage
 	health_bar.value = health
 	if health <= 0:
+		
 		$CharacterBody2D/AnimatedSprite2D.play("dead")
 		emit_signal("add_money", cash)
 		await (get_tree().create_timer(0.18)).timeout
 		on_destroy()
+
 
 func on_destroy():
 	self.queue_free()
