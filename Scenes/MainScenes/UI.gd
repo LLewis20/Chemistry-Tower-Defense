@@ -90,10 +90,10 @@ func update_question_ui(question_number):
 	$HUD/QuestionBox/VBoxContainer/TextureButton3/Label.text = GameData.questions[str(question_number)]["Options"]["3"]
 	$HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text = GameData.questions[str(question_number)]["Options"]["4"]
 
-##
 ## Checks to make sure answer is correct
-##
 func check_answer(users_answer):
+	
+	##Correct answer
 	if users_answer == GameData.questions[str(question_number)]["Answer"]:
 		$"..".update_money(10)
 		$"..".flask_answered()
@@ -103,7 +103,8 @@ func check_answer(users_answer):
 		get_node("HUD/QuestionBox").visible = false
 		$"../audio".stream = load("res://Assets/Audio/correct_answer.wav")
 		$"../audio".play()
-		
+	
+	##Incorrect answer	
 	else:
 		$"../audio".stream = load("res://Assets/Audio/wrong_answer.mp3")
 		$"../audio".play()
