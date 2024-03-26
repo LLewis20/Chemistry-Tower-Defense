@@ -17,9 +17,6 @@ func _on_play_button_pressed():
 	game_scene.connect("game_finished", Callable(self, 'unload_game'))
 	add_child(game_scene)
 
-##func _on_option_button_pressed():
-	####
-
 func _on_exit_button_pressed():
 	get_tree().quit()
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq3hkw226p3nh"]
+[gd_scene load_steps=6 format=3 uid="uid://dq3hkw226p3nh"]
 
 [ext_resource type="Texture2D" uid="uid://uhw6w7ffx2fb" path="res://Assets/UI/background/cover background.png" id="1_n2mia"]
 [ext_resource type="Texture2D" uid="uid://df4kitv2deepi" path="res://Assets/UI/button/start game btn.png" id="2_7x73y"]
 [ext_resource type="Texture2D" uid="uid://6yyn0jf2w4oc" path="res://Assets/UI/button/start game btn pressed.png" id="3_u8cie"]
 [ext_resource type="FontFile" uid="uid://djjci2afnfjas" path="res://Resources/Fonts/TherenRegular-vmrnE.ttf" id="4_d7m41"]
+[ext_resource type="Script" path="res://Scenes/UIScenes/OptionsButton.gd" id="5_pjm8k"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -70,6 +71,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_7x73y")
 texture_pressed = ExtResource("3_u8cie")
+script = ExtResource("5_pjm8k")
 
 [node name="OptionLabel" type="Label" parent="MarginContainer/VBoxContainer/OptionsButton"]
 layout_mode = 1
@@ -107,3 +109,5 @@ theme_override_font_sizes/font_size = 55
 text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="MarginContainer/VBoxContainer/OptionsButton" method="_on_pressed"]
