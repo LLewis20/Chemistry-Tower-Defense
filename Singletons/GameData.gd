@@ -43,7 +43,7 @@ var questions = {
 	##
 	"1":{
 		"Question": "What is BaCrO\u2084?",
-		"Answer": "Base",
+		"Answer": "Salt",
 		"Options": {
 			"1": "Acid",
 			"2": "Base",
@@ -58,7 +58,7 @@ var questions = {
 		"Options": {
 			"1": "Acid",
 			"2": "Base",
-			"3": "Polyatomic",
+			"3": "Salt",
 			"4": "Neither"
 		}
 	},
@@ -81,7 +81,7 @@ var questions = {
 			"1": "Acid",
 			"2": "Base",
 			"3": "Polyatomic",
-			"4": "Neither"
+			"4": "Noble Gas"
 		}
 	},
 
@@ -89,8 +89,8 @@ var questions = {
 		"Question": "What is HNO\u2082?",
 		"Answer": "Acid",
 		"Options": {
-			"1": "Acid",
-			"2": "Base",
+			"1": "Base",
+			"2": "Acid",
 			"3": "Polyatomic",
 			"4": "Neither"
 		}
@@ -101,9 +101,9 @@ var questions = {
 		"Answer": "Neither",
 		"Options": {
 			"1": "Acid",
-			"2": "Base",
-			"3": "Polyatomic",
-			"4": "Neither"
+			"2": "Salt",
+			"3": "Neither",
+			"4": "Base"
 		}
 	},
 

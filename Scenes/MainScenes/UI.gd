@@ -66,12 +66,12 @@ func update_health(base_health):
 
 func change_cash_amount(amount):
 	money_count.text = "$" + str(amount)
+	
 
 ##
 ## QUESTION BOX FUNCTIONS
 ##
 func create_question():
-<<<<<<< HEAD
 	if get_node("HUD/QuestionBox").visible or question_active:
 		get_node("HUD/QuestionBox").visible = true
 		return
@@ -82,16 +82,14 @@ func create_question():
 	get_node("HUD/QuestionBox").visible = true
 	question_active = true
 
-func update_question_ui(question_number):
-=======
-	question_number = randi_range(1,27)
->>>>>>> df7b23444f45e17646124c380d964a3604cf5ccf
-	print(question_number)
-	$HUD/QuestionBox/VBoxContainer/QuestionLabel.text = GameData.questions[str(question_number)]["Question"]
-	$HUD/QuestionBox/VBoxContainer/TextureButton/Label.text = GameData.questions[str(question_number)]["Options"]["1"]
-	$HUD/QuestionBox/VBoxContainer/TextureButton2/Label.text = GameData.questions[str(question_number)]["Options"]["2"]
-	$HUD/QuestionBox/VBoxContainer/TextureButton3/Label.text = GameData.questions[str(question_number)]["Options"]["3"]
-	$HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text = GameData.questions[str(question_number)]["Options"]["4"]
+func update_question_ui(question_index):
+	#question_number = randi_range(1,27)
+	print(question_index)
+	$HUD/QuestionBox/VBoxContainer/QuestionLabel.text = GameData.questions[str(question_index)]["Question"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton/Label.text = GameData.questions[str(question_index)]["Options"]["1"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton2/Label.text = GameData.questions[str(question_index)]["Options"]["2"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton3/Label.text = GameData.questions[str(question_index)]["Options"]["3"]
+	$HUD/QuestionBox/VBoxContainer/TextureButton4/Label.text = GameData.questions[str(question_index)]["Options"]["4"]
 
 ##
 ## Checks to make sure answer is correct
@@ -143,3 +141,36 @@ func _on_exit_question_button_pressed():
 ##
 func _on_resume_button_pressed():
 	$HUD/PauseMenu.visible = false
+
+
+func _on_gun_mouse_entered():
+	print("ENTER")
+	$HUD/infobox4.visible = true
+
+
+func _on_gun_mouse_exited():
+	$HUD/infobox4.visible = false
+
+
+func _on_missile_mouse_entered():
+	$HUD/infobox3.visible = true
+
+
+func _on_missile_mouse_exited():
+	$HUD/infobox3.visible = false
+
+
+func _on_doubleshooter_mouse_entered():
+	$HUD/infobox2.visible = true
+
+
+func _on_doubleshooter_mouse_exited():
+	$HUD/infobox2.visible = false
+
+
+func _on_tripleshooter_mouse_entered():
+	$HUD/infobox.visible = true
+
+
+func _on_tripleshooter_mouse_exited():
+	$HUD/infobox.visible = false

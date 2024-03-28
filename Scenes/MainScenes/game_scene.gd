@@ -30,6 +30,7 @@ func _ready():
 
 
 func _process(_delta):
+	check_money_and_price()
 	check_and_spawn_flask()
 	if build_mode:
 		update_tower_preview()
@@ -164,7 +165,8 @@ func check_and_spawn_flask():
 func create_flask():
 	var flask = load("res://Scenes/MoneyFlask/MoneyFlask.tscn").instantiate()
 	flask.position = Vector2((randf_range(0,1000)), (randf_range(6,525)))
-	$UI.connect("correct_answer", Callable(self, "_on_correct_answer"))
+	#$UI.connect("correct_answer", Callable(self, "_on_correct_answer"))
+	#$UI.connect("incorrect_answer", Callable(self, "_on_incorrect_answer"))
 	map_node.add_child(flask, true)
 	number_of_flask += 1
 
@@ -188,3 +190,21 @@ func on_base_damage(damage : int):
 func update_money(amount : int):
 	money += amount
 	get_node("UI").change_cash_amount(money)
+
+func check_money_and_price():
+	var turret_cost = {
+		"gun": 20,
+		"missile": 45,
+		"doubleshooter": 60,
+		"tripleshooter": 150,
+	}
+	
+	for turret in turret_cost.keys():
+		var cost = turret_cost[turret]
+		var label_path = "UI/HUD/InfoBar/BuildBar/" + turret + "/Label"
+		var label_node = get_node_or_null(label_path)  # Using get_node_or_null to avoid errors if the path doesn't exist
+		if label_node:
+			if money < cost:
+				label_node.modulate = Color(1, 0, 0)  # Red color for not affordable
+			else:
+				label_node.modulate = Color(1, 1, 1)  # White color for affordable
