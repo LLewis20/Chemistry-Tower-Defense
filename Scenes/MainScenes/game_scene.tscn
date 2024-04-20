@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dg02fghnynaef"]
+[gd_scene load_steps=24 format=3 uid="uid://dg02fghnynaef"]
 
 [ext_resource type="PackedScene" uid="uid://bgi37b75qoaw0" path="res://Scenes/Maps/map1.tscn" id="1_56nhb"]
 [ext_resource type="Script" path="res://Scenes/MainScenes/game_scene.gd" id="1_d4jco"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://sqrh2k21xgjh" path="res://Assets/Towers/big_blaster.png" id="9_mb5d4"]
 [ext_resource type="Texture2D" uid="uid://dgw0o2b8wu3v0" path="res://Assets/Towers/double_shooter.png" id="10_h7044"]
 [ext_resource type="Texture2D" uid="uid://cmc2vps2doo7i" path="res://Assets/Towers/triple_fire.png" id="11_d4b5d"]
+[ext_resource type="Texture2D" uid="uid://dwqwpk7ophyl5" path="res://Assets/Icons/question-sign.png" id="13_c55gu"]
 [ext_resource type="Texture2D" uid="uid://blqlyy07tmgor" path="res://Assets/UI/background/14.png" id="14_vr1s0"]
 [ext_resource type="Texture2D" uid="uid://uhw6w7ffx2fb" path="res://Assets/UI/background/cover background.png" id="16_tvc3r"]
 [ext_resource type="Texture2D" uid="uid://cmldv1tsqvkxh" path="res://Assets/UI/health bar/HPbar.jpg" id="17_5gif6"]
@@ -407,6 +408,24 @@ theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "The Ammonia Avenger unleashes a swift barrage of ammonia molecules, neutralizing enemies with a potent cloud that transforms the battlefield chemistry in your favor."
 fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 558.0
+offset_right = 634.0
+offset_bottom = 76.0
+texture = ExtResource("13_c55gu")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/HUD/TextureRect"]
+offset_left = 68.0
+offset_top = 16.0
+offset_right = 261.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("6_o32s6")
+theme_override_font_sizes/font_size = 38
+text = "0/27"
+horizontal_alignment = 1
 
 [node name="GameControls" type="HBoxContainer" parent="UI/HUD"]
 layout_mode = 1

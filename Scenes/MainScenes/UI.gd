@@ -6,9 +6,14 @@ signal incorrect_answer
 @onready var health_bar = get_node("HUD/Life/Label2")
 @onready var money_count = get_node("HUD/Coins/Label")
 
+var number_of_questions_answered_correctly = 0
 var question_number = null
 var question_active = false
 
+
+func _process(delta):
+	if number_of_questions_answered_correctly == 3:
+		get_tree().change_scene_to_file("res://Scenes/UIScenes/main_menu.tscn")
 
 ##
 ## Main Screen Functions
@@ -96,6 +101,8 @@ func update_question_ui(question_index):
 ##
 func check_answer(users_answer):
 	if users_answer == GameData.questions[str(question_number)]["Answer"]:
+		number_of_questions_answered_correctly += 1
+		$HUD/TextureRect/Label.text = str(number_of_questions_answered_correctly) +"/27"
 		$"..".update_money(10)
 		$"..".flask_answered()
 		question_active = false

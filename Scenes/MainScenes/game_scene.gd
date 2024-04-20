@@ -20,6 +20,7 @@ var category
 var number_of_flask = 0
 var spawn_flask = true
 
+
 var is_pause_menu_visible = false
 
 
