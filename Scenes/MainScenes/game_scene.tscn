@@ -418,6 +418,7 @@ texture = ExtResource("13_c55gu")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="UI/HUD/TextureRect"]
+layout_mode = 0
 offset_left = 68.0
 offset_top = 16.0
 offset_right = 261.0
